@@ -1,0 +1,9 @@
+html {
+  min-height: 100%;
+}
+body {
+  padding: 78px 0 0;
+  font: 14px "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Tahoma, Helvetica, Arial, sans-serif;
+  color: "#666";
+  background-color: "#fff";
+}
