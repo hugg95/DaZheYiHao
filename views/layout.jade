@@ -1,11 +1,19 @@
 doctype html
 html
-  head
-    title= title
-    meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
-    link(rel='stylesheet', href='/css/style.css')
-    block css-area
-  body
-    #app.container-fluid
-    block js-area
+    head
+        title= title
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+        link(rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/css/style.css")
+        block css-area
+    body
+        container-fluid
+            .header
+                .navbar.navbar-default.navbar-fixed-top(role="navigation")
+                    .container-fluid
+                        .navbar-header
+                            a.navbar-brand(href="#") DaZheYiHao
+        #app
     script(src="dist/main.js")
+    block js-area
