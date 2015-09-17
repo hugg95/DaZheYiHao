@@ -7,3 +7,10 @@ body {
   color: "#666";
   background-color: "#fff";
 }
+.header .navbar-default {
+  background-color: #333333;
+}
+.header .navbar-default .navbar-brand,
+.header .navbar-default .navbar-nav li a {
+  color: #ffffff;
+}
