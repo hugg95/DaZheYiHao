@@ -1,9 +1,10 @@
 @import "variable.less";
 html {
-    min-height: 100%;
+    height: 100%;
 }
 
 body {
+    height: 100%;
     padding: 78px 0 0;
     font: 14px @font-mac, @font-win, @font-linux, @font-common;
     color: @font-color-common;
@@ -18,4 +19,15 @@ body {
             color: @front-color;
         }
     }
+}
+
+#app {
+    min-height: 100%;
+}
+
+.footer {
+    width: 100%;
+    height: 160px;
+    border-top: 5px solid #666;
+    background-color: @background-color;
 }
