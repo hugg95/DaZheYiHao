@@ -1,5 +1,5 @@
 npm install
-grunt less
+grunt watch
 cd ./public/
 webpack
 npm start
