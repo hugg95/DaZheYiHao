@@ -13,15 +13,16 @@ module.exports = function(grunt) {
         watch: {
             less: {
                 files: ['public/less/*.less'],
-                options: ['less']
+                tasks: ['less']
             },
             js: {
                 files: ['public/js/*.js'],
-                options: ['webpack']
+                tasks: ['webpack']
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
 
+}
