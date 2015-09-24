@@ -7,20 +7,27 @@ body {
     height: 100%;
     padding: 78px 0 0;
     font: 14px @font-mac, @font-win, @font-linux, @font-common;
-    color: @font-color-common;
-    background-color: @white;
+    background-color: @gray;
 }
 
 .header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 52px;
+    border-bottom: 2px solid @red;
+    background-color: @white;
+    box-shadow: 0 0 5px @shadow;
     .navbar-default {
-        background-color: @background-color;
-        .navbar-brand,
-        .navbar-nav li a {
-            color: @front-color;
-        }
+        width: 69%;
+        margin: 0 auto;
+        background-color: @white;
         .navbar-nav li:hover {
-            background-color: red;
+            background-color: @red;
         }
+    }
+    .navbar-fixed-top {
+        border: 0;
     }
 }
 
