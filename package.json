@@ -21,11 +21,13 @@
     "webpack": "^1.12.1"
   },
   "devDependencies": {
+    "express-handlebars": "^2.0.1",
     "grunt": "^0.4.5",
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-watch": "^0.6.1",
     "handlebars": "^4.0.2",
     "jsx-loader": "^0.13.2",
-    "mysql": "^2.9.0"
+    "mysql": "^2.9.0",
+    "node-jsx": "^0.13.3"
   }
 }

@@ -1,3 +1,4 @@
+#!/bin/bash
 npm install
 grunt less
 cd ./public/
