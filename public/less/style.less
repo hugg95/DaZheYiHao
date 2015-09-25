@@ -11,7 +11,7 @@ body {
 }
 
 .header {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 52px;
@@ -25,6 +25,9 @@ body {
         .navbar-nav li:hover {
             background-color: @red;
         }
+        .navbar-nav li a:hover {
+            color: #fff;
+        }
     }
     .navbar-fixed-top {
         border: 0;
@@ -32,7 +35,9 @@ body {
 }
 
 .main {
+    width: 70%;
     height: 100%;
+    margin: 0 auto;
     padding-bottom: 100px;
 }
 

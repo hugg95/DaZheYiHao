@@ -13,9 +13,7 @@ let GoodsList  = react.createClass({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    const goodsList = react.renderToString(GoodsList);
-    console.log(goodsList);
-    res.render('index', { title: 'Express', goodsList: goodsList });
+    res.render('index');
 });
 
 module.exports = router;
