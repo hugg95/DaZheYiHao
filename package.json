@@ -28,6 +28,7 @@
     "handlebars": "^4.0.2",
     "jsx-loader": "^0.13.2",
     "mysql": "^2.9.0",
-    "node-jsx": "^0.13.3"
+    "node-jsx": "^0.13.3",
+    "sequelize": "^3.9.0"
   }
 }
