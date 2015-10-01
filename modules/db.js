@@ -5,7 +5,21 @@
  * @date 2015/09/27
  */
 
-const Sequelize = require('sequelize');
+'use strict'
 
-module.exports = db;
+const Sequelize = require('sequelize');
+const dbConfig = require('../config/mysql.config.json');
+
+let connection = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
+    host: dbConfig.host,
+    port: dbConfig.port,
+    dialet: 'mysql',
+    pool: {
+        min: 0,
+        max: 5,
+        idle: 10000
+    }
+});
+
+module.exports = connection;
 
