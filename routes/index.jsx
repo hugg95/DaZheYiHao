@@ -22,6 +22,14 @@ const url = require('url');
  */
 router.get('/', function(req, res, next) {
 
+    // construct request url of get_categories
+    let getCategories = url.format({
+        hostname: apiConfig.host,
+        port: apiConfig.port,
+        protocol: 'http',
+        pathname: apiConfig.get_categories
+    });
+
     // construct request url of get_goods_list
     let getGoodsList = url.format({
         hostname: apiConfig.host,
@@ -32,18 +40,25 @@ router.get('/', function(req, res, next) {
 
     getGoodsList = getGoodsList.replace(/\{\w+\}/, 1);
 
-    // execute request
-    request.getAsync(getGoodsList).then(function(_res) {
-        let resBody = _res[0].body;
-        resBody = JSON.parse(resBody);
-        const goodsList = resBody.data;
-        const c = React.renderToString(<CategoryFilter/>);
-        const d = React.renderToString(<GoodsList goodsList={goodsList} />);
-        res.render('index', {categoryFilter: c, goodsList: d});
+    let requests = {};
+    requests['get_categories'] = request.getAsync(getCategories);
+    requests['get_goods_list'] = request.getAsync(getGoodsList);
+
+    Promise.props(requests).then(function(_res) {
+        const getCategoriesRes = _res['get_categories'];
+        const getGoodsListRes = _res['get_goods_list'];
+        const categories = JSON.parse(getCategoriesRes[0]['body'])['data'];
+        const goodsList = JSON.parse(getGoodsListRes[0]['body'])['data'];
+        const c = React.renderToString(<CategoryFilter categories={categories} />);
+        const g = React.renderToString(<GoodsList goodsList={goodsList} />);
+
+        res.render('index', {categoryFilter: c, goodsList: g});
+
     }).catch(function(e) {
-        // todo
-        console.log(e);
+
+        consoel.log(e);
         res.render('index', {error: e});
+
     });
 
 });

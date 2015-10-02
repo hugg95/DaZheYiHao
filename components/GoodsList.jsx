@@ -13,7 +13,13 @@ const Goods = React.createClass({
 
     render: function() {
         return (
-            <img src={this.props.goods.picUrl} />
+            <div className="thumbnail">
+                <img src={this.props.goods.picUrl} />
+                <div className="caption">
+                    <h3>{this.props.goods.title}</h3>
+                    <p>{this.props.goods.descSummary}</p>
+                </div>
+            </div>
         );
     }
 
