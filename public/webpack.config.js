@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './js/dazhe_entry.js',
+    entry: './js/app.js',
     output: {
         path: './dist',
         filename: '[name].js'

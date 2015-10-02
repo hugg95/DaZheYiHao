@@ -15,6 +15,7 @@ const NavBar = require('../components/NavBar.react.jsx');
 const Promise = require('bluebird');
 const request = Promise.promisifyAll(require('request'));
 const apiConfig = require('../config/api.json');
+let navigation = require('../config/navigation.conf.json');
 const url = require('url');
 
 /**
@@ -49,10 +50,16 @@ router.get('/', function(req, res, next) {
         const getGoodsListRes = _res['get_goods_list'];
         const categories = JSON.parse(getCategoriesRes[0]['body'])['data'];
         const goodsList = JSON.parse(getGoodsListRes[0]['body'])['data'];
-        const c = React.renderToString(<NavBar />);
+        // append categories list in navigation
+        navigation.map(function(item) {
+            if (item._name === 'category') {
+                item.dropdown = categories;
+            }
+        });
+        const c = React.renderToString(<NavBar navs={navigation} />);
         const g = React.renderToString(<GoodsList goodsList={goodsList} />);
 
-        res.render('index', {navbar: c, goodsList: g});
+        res.render('index', {navbar: c, goodsList: g, navs: JSON.stringify(navigation)});
 
     }).catch(function(e) {
 
