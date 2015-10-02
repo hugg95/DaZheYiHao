@@ -13,7 +13,7 @@ let Category = React.createClass({
     render: function() {
         return (
             <li className="category-item">
-                <a href="#">{this.props.category.name}</a>
+                <a href={"#/"+ this.props.category.id}>{this.props.category.name}</a>
             </li>
         );
     }
@@ -22,17 +22,13 @@ let Category = React.createClass({
 let CategoryFilter = React.createClass({
     render: function() {
         return (
-            <div className="row">
-                <div className="col-md-3 category-filter">
-                    <ul className="list-unstyled">
-                        {
-                            this.props.categories.map(function(category) {
-                                return <Category category={category} />
-                            })
-                        }
-                    </ul>
-                </div>
-            </div>
+            <ul className="list-unstyled">
+                {
+                    this.props.categories.map(function(category) {
+                        return <Category category={category} />
+                    })
+                }
+            </ul>
         );
     }
 });

@@ -52,7 +52,7 @@ router.get('/', function(req, res, next) {
         const c = React.renderToString(<CategoryFilter categories={categories} />);
         const g = React.renderToString(<GoodsList goodsList={goodsList} />);
 
-        res.render('index', {categoryFilter: c, goodsList: g});
+        res.render('index', {categories: c, goodsList: g});
 
     }).catch(function(e) {
 
