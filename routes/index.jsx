@@ -10,8 +10,8 @@
 const express = require('express');
 const router = express.Router();
 const React = require('react');
-const GoodsList = require('../components/GoodsList.jsx');
-const CategoryFilter = require('../components/CategoryFilter.jsx');
+const GoodsList = require('../components/GoodsList.react.jsx');
+const NavBar = require('../components/NavBar.react.jsx');
 const Promise = require('bluebird');
 const request = Promise.promisifyAll(require('request'));
 const apiConfig = require('../config/api.json');
@@ -49,14 +49,14 @@ router.get('/', function(req, res, next) {
         const getGoodsListRes = _res['get_goods_list'];
         const categories = JSON.parse(getCategoriesRes[0]['body'])['data'];
         const goodsList = JSON.parse(getGoodsListRes[0]['body'])['data'];
-        const c = React.renderToString(<CategoryFilter categories={categories} />);
+        const c = React.renderToString(<NavBar />);
         const g = React.renderToString(<GoodsList goodsList={goodsList} />);
 
-        res.render('index', {categories: c, goodsList: g});
+        res.render('index', {navbar: c, goodsList: g});
 
     }).catch(function(e) {
 
-        consoel.log(e);
+        console.log(e);
         res.render('index', {error: e});
 
     });

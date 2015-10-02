@@ -39,7 +39,7 @@ body {
   margin: 0 auto;
   padding-bottom: 100px;
 }
-.category-list {
+.dropdown-list {
   width: 100%;
   min-height: 100px;
   padding: 10px 0;
@@ -49,11 +49,11 @@ body {
   top: 53px;
   background-color: #cc3366;
 }
-.category-list li {
+.dropdown-list li {
   padding-top: 5px;
   height: 30px;
 }
-.category-list li a {
+.dropdown-list li a {
   color: #ffffff;
 }
 .footer {

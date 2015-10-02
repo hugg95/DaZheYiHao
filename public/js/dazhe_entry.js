@@ -2,21 +2,21 @@ var React = require('react');
 var Router = require('react-router');
 var Routes = Router.Routes;
 var Route = Router.Route;
+var NavBar = require('../../components/NavBar.react.jsx');
+var GoodsList = require('../../components/GoodsList.react.jsx');
 
-var DaZheApp = React.createClass({
+var App = React.createClass({
     render: function() {
         return (
-            <div>
-                <h3>hello world</h3>
-            </div>
+            <div></div>
         );
     }
 });
 
 var routes = (
-    <Route handler={DaZheApp}></Route>
+    <Route handler={App}></Route>
 );
 
 Router.run(routes, Router.HashLocation, function(Root) {
-    React.render(<Root />, document.getElementById('app'));
+    React.render(<NavBar />, document.getElementById('js-navbar'));
 });
