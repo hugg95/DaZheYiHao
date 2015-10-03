@@ -60,7 +60,11 @@ body {
 .goods-item {
   max-height: 180px;
   margin-bottom: 15px;
+  padding-top: 10px;
   background-color: #ffffff;
+}
+.goods-item .thumbnail {
+  border: none;
 }
 .goods-item img {
   max-width: 150px;
