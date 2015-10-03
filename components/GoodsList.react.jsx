@@ -13,7 +13,7 @@ const Goods = React.createClass({
 
     render: function() {
         return (
-            <div className="col-md-6 goods-item">
+            <div className="col-md-12 goods-item">
                 <div key={this.props.goods.id} className="row">
                     <div className="col-md-3">
                         <a href="#" className="thumbnail">
@@ -53,6 +53,7 @@ const GoodsList = React.createClass({
 
     render: function() {
         const goodsList = this.props.goodsList;
+        /*
         let result = [], temp = [];
         goodsList.forEach(function(item){
             if (temp.length >= 2) {
@@ -61,12 +62,13 @@ const GoodsList = React.createClass({
             }
             temp.push(item);
         });
+        */
 
         return (
             <div>
                 {
-                    result.map(function(row) {
-                        return <Row row={row} />
+                    goodsList.map(function(goods) {
+                        return <Goods goods={goods} />
                     })
                 }
             </div>

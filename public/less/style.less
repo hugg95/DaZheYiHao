@@ -12,6 +12,7 @@ body {
 
 .header {
     position: fixed;
+    z-index: 100;
     top: 0;
     width: 100%;
     height: 52px;
@@ -42,10 +43,6 @@ body {
     min-height: 100%;
     margin: 0 auto;
     padding-bottom: 100px;
-    .row {
-        height: 200px;
-        margin-bottom: 15px;
-    }
 }
 
 .dropdown-list {
@@ -67,7 +64,8 @@ body {
 }
 
 .goods-item {
-    height: 200px;
+    max-height: 180px;
+    margin-bottom: 15px;
     background-color: @white;
     img {
         max-width: 150px;

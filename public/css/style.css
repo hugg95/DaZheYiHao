@@ -9,6 +9,7 @@ body {
 }
 .header {
   position: fixed;
+  z-index: 100;
   top: 0;
   width: 100%;
   height: 52px;
@@ -39,10 +40,6 @@ body {
   margin: 0 auto;
   padding-bottom: 100px;
 }
-.main .row {
-  height: 200px;
-  margin-bottom: 15px;
-}
 .dropdown-list {
   width: 100%;
   min-height: 100px;
@@ -61,7 +58,8 @@ body {
   color: #ffffff;
 }
 .goods-item {
-  height: 200px;
+  max-height: 180px;
+  margin-bottom: 15px;
   background-color: #ffffff;
 }
 .goods-item img {

@@ -32916,7 +32916,7 @@
 
 	    render: function() {
 	        return (
-	            React.createElement("div", {className: "col-md-6 goods-item"}, 
+	            React.createElement("div", {className: "col-md-12 goods-item"}, 
 	                React.createElement("div", {key: this.props.goods.id, className: "row"}, 
 	                    React.createElement("div", {className: "col-md-3"}, 
 	                        React.createElement("a", {href: "#", className: "thumbnail"}, 
@@ -32956,6 +32956,7 @@
 
 	    render: function() {
 	        const goodsList = this.props.goodsList;
+	        /*
 	        let result = [], temp = [];
 	        goodsList.forEach(function(item){
 	            if (temp.length >= 2) {
@@ -32964,12 +32965,13 @@
 	            }
 	            temp.push(item);
 	        });
+	        */
 
 	        return (
 	            React.createElement("div", null, 
 	                
-	                    result.map(function(row) {
-	                        return React.createElement(Row, {row: row})
+	                    goodsList.map(function(goods) {
+	                        return React.createElement(Goods, {goods: goods})
 	                    })
 	                
 	            )
