@@ -32807,7 +32807,7 @@
 
 	    render: function() {
 	        return (
-	            React.createElement("li", {key: this.props.dropdownItem.name, className: "dropdown-item"}, 
+	            React.createElement("li", {key: this.props.dropdownItem.id, className: "dropdown-item"}, 
 	                React.createElement("a", {href: this.props.dropdownItem.href}, this.props.dropdownItem.name)
 	            )
 	        );
@@ -32825,14 +32825,14 @@
 	        const navItem = this.props.navItem;
 
 	        let navItemDom = (
-	            React.createElement("li", {key: navItem.name}, 
+	            React.createElement("li", {key: navItem.id}, 
 	                React.createElement("a", {href: navItem.href}, navItem.name)
 	            )
 	        );
 
 	        if (navItem.dropdown) {
 	            navItemDom = (
-	                React.createElement("li", {key: navItem.name}, 
+	                React.createElement("li", {key: navItem.id}, 
 	                    React.createElement("a", {href: "javascript:;"}, navItem.name), 
 	                    React.createElement("div", {className: "dropdown-list"}, 
 	                        React.createElement("ul", {className: "list-unstyled"}, 
@@ -32914,19 +32914,27 @@
 
 	const Goods = React.createClass({displayName: "Goods",
 
+	    directToTargetSite: function(targetLink) {
+	        //if (window)
+	        //    window.open(targetLink);
+	    },
+
 	    render: function() {
 	        return (
-	            React.createElement("div", {className: "col-md-12 goods-item"}, 
-	                React.createElement("div", {key: this.props.goods.id, className: "row"}, 
+	            React.createElement("div", {key: this.props.goods.id, className: "col-md-12 goods-item"}, 
+	                React.createElement("div", {className: "row"}, 
 	                    React.createElement("div", {className: "col-md-3"}, 
 	                        React.createElement("a", {href: "#", className: "thumbnail"}, 
 	                            React.createElement("img", {className: "img-responsive", src: this.props.goods.picUrl})
 	                        )
 	                    ), 
 	                    React.createElement("div", {className: "col-md-9"}, 
-	                        React.createElement("div", {className: "caption"}, 
-	                            React.createElement("h3", null, this.props.goods.title), 
-	                            React.createElement("p", null, this.props.goods.descSummary)
+	                        React.createElement("div", {className: "content-area"}, 
+	                            React.createElement("a", {className: "goods-title"}, this.props.goods.title), 
+	                            React.createElement("div", null, this.props.goods.descSummary)
+	                        ), 
+	                        React.createElement("div", {className: "btns-area"}, 
+	                            React.createElement("button", {className: "btn btn-info btn-sm pull-right", onClick: this.directToTargetSite(this.props.goods.buyUrl)}, "到购物网站")
 	                        )
 	                    )
 	                )

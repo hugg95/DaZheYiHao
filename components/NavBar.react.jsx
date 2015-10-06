@@ -17,7 +17,7 @@ let DropdownItem = React.createClass({
 
     render: function() {
         return (
-            <li key={this.props.dropdownItem.name} className="dropdown-item">
+            <li key={this.props.dropdownItem.id} className="dropdown-item">
                 <a href={this.props.dropdownItem.href}>{this.props.dropdownItem.name}</a>
             </li>
         );
@@ -35,14 +35,14 @@ let NavItem = React.createClass({
         const navItem = this.props.navItem;
 
         let navItemDom = (
-            <li key={navItem.name}>
+            <li key={navItem.id}>
                 <a href={navItem.href}>{navItem.name}</a>
             </li>
         );
 
         if (navItem.dropdown) {
             navItemDom = (
-                <li key={navItem.name}>
+                <li key={navItem.id}>
                     <a href="javascript:;">{navItem.name}</a>
                     <div className="dropdown-list">
                         <ul className="list-unstyled">

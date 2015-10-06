@@ -11,19 +11,27 @@ const React = require('react');
 
 const Goods = React.createClass({
 
+    directToTargetSite: function(targetLink) {
+        //if (window)
+        //    window.open(targetLink);
+    },
+
     render: function() {
         return (
-            <div className="col-md-12 goods-item">
-                <div key={this.props.goods.id} className="row">
+            <div key={this.props.goods.id} className="col-md-12 goods-item">
+                <div className="row">
                     <div className="col-md-3">
                         <a href="#" className="thumbnail">
                             <img className="img-responsive" src={this.props.goods.picUrl} />
                         </a>
                     </div>
                     <div className="col-md-9">
-                        <div className="caption">
-                            <h3>{this.props.goods.title}</h3>
-                            <p>{this.props.goods.descSummary}</p>
+                        <div className="content-area">
+                            <a className="goods-title">{this.props.goods.title}</a>
+                            <div>{this.props.goods.descSummary}</div>
+                        </div>
+                        <div className="btns-area">
+                            <button className="btn btn-info btn-sm pull-right" onClick={this.directToTargetSite(this.props.goods.buyUrl)}>到购物网站</button>
                         </div>
                     </div>
                 </div>

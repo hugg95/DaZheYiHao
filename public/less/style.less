@@ -43,6 +43,11 @@ body {
     min-height: 100%;
     margin: 0 auto;
     padding-bottom: 100px;
+
+    .main-body,
+    .main-side {
+        background-color: @white;
+    }
 }
 
 .dropdown-list {
@@ -64,16 +69,30 @@ body {
 }
 
 .goods-item {
-    max-height: 180px;
+    /*max-height: 180px;*/
     margin-bottom: 15px;
     padding-top: 10px;
+    border-bottom: 1px solid @red;
     background-color: @white;
     .thumbnail {
         border: none;
     }
+    .content-area {
+        padding-top: 15px;
+    }
+    .goods-title {
+        display: inline-block;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+    }
     img {
         max-width: 150px;
         max-height: 150px;
+    }
+    .btns-area {
+        height: 50px;
+        padding: 10px 0;
     }
 }
 
