@@ -32933,8 +32933,9 @@
 	                            React.createElement("a", {className: "goods-title"}, this.props.goods.title), 
 	                            React.createElement("div", null, this.props.goods.descSummary)
 	                        ), 
-	                        React.createElement("div", {className: "btns-area"}, 
-	                            React.createElement("button", {className: "btn btn-info btn-sm pull-right", onClick: this.directToTargetSite(this.props.goods.buyUrl)}, "到购物网站")
+	                        React.createElement("div", {className: "row btns-area"}, 
+	                            React.createElement("button", {className: "btn btn-info btn-sm pull-right"}, "详情"), 
+	                            React.createElement("button", {className: "btn btn-buy btn-sm pull-right", onClick: this.directToTargetSite(this.props.goods.buyUrl)}, "到购物网站")
 	                        )
 	                    )
 	                )

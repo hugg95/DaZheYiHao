@@ -7,6 +7,15 @@ body {
   font: 14px "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Tahoma, Helvetica, Arial, sans-serif;
   background-color: #f0f0f0;
 }
+.btn-buy {
+  color: #ffffff;
+  background-color: #e65686;
+  border-color: #cc3366;
+}
+.btn-buy:hover {
+  color: #ffffff;
+  background-color: #e63f77;
+}
 .header {
   position: fixed;
   z-index: 100;
@@ -42,6 +51,7 @@ body {
 }
 .main .main-body,
 .main .main-side {
+  color: #555;
   background-color: #ffffff;
 }
 .dropdown-list {
@@ -86,7 +96,10 @@ body {
 }
 .goods-item .btns-area {
   height: 50px;
-  padding: 10px 0;
+  padding: 10px;
+}
+.goods-item .btns-area .btn {
+  margin-right: 5px;
 }
 .footer {
   width: 100%;

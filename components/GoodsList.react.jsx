@@ -30,8 +30,9 @@ const Goods = React.createClass({
                             <a className="goods-title">{this.props.goods.title}</a>
                             <div>{this.props.goods.descSummary}</div>
                         </div>
-                        <div className="btns-area">
-                            <button className="btn btn-info btn-sm pull-right" onClick={this.directToTargetSite(this.props.goods.buyUrl)}>到购物网站</button>
+                        <div className="row btns-area">
+                            <button className="btn btn-info btn-sm pull-right">详情</button>
+                            <button className="btn btn-buy btn-sm pull-right" onClick={this.directToTargetSite(this.props.goods.buyUrl)}>到购物网站</button>
                         </div>
                     </div>
                 </div>
