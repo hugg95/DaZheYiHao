@@ -32923,23 +32923,22 @@
 	        return (
 	            React.createElement("div", {key: this.props.goods.id, className: "col-md-12 goods-item"}, 
 	                React.createElement("div", {className: "row"}, 
-	                    React.createElement("div", {className: "col-md-3"}, 
-	                        React.createElement("a", {href: "#", className: "thumbnail"}, 
-	                            React.createElement("img", {className: "img-responsive", src: this.props.goods.picUrl})
+	                    React.createElement("div", {className: "col-md-3 col-xs-2"}, 
+	                        React.createElement("a", {href: 'goods/' + this.props.goods.id}, 
+	                            React.createElement("img", {className: "img-responsive center-block", src: this.props.goods.picUrl})
 	                        )
 	                    ), 
-	                    React.createElement("div", {className: "col-md-9"}, 
+	                    React.createElement("div", {className: "col-md-9 col-xs-10"}, 
 	                        React.createElement("div", {className: "content-area"}, 
 	                            React.createElement("a", {href: 'goods/' + this.props.goods.id, className: "goods-title"}, 
 	                                React.createElement("span", null, this.props.goods.title), 
 	                                React.createElement("span", {className: "goods-discount"}, this.props.goods.discountInfo)
 	                            ), 
-	                            React.createElement("div", null, this.props.goods.descSummary)
+	                            React.createElement("div", {className: "hidden-sm hidden-xs"}, this.props.goods.descSummary)
 	                        ), 
-	                        React.createElement("div", {className: "row foot-area clearfix"}, 
+	                        React.createElement("div", {className: "row foot-area visible-md visible-lg clearfix"}, 
 	                            React.createElement("span", {className: "interaction-area"}), 
 	                            React.createElement("span", {className: "btns-area"}, 
-	                                React.createElement("button", {className: "btn btn-info btn-sm"}, "详情"), 
 	                                React.createElement("button", {className: "btn btn-buy btn-sm", onClick: this.directToTargetSite(this.props.goods.buyUrl)}, "到购物网站")
 	                            )
 	                        )

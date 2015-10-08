@@ -50,9 +50,7 @@ body {
 }
 
 .main {
-    width: 60%;
     min-height: 100%;
-    margin: 0 auto;
     padding-bottom: 100px;
 
     .main-body,
@@ -139,4 +137,12 @@ body {
     text-align: center;
     background-color: #555;
     border-top: 5px solid #666;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        .navbar-default {
+            width: 100%;
+        }
+    }
 }

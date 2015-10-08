@@ -20,23 +20,22 @@ const Goods = React.createClass({
         return (
             <div key={this.props.goods.id} className="col-md-12 goods-item">
                 <div className="row">
-                    <div className="col-md-3">
-                        <a href="#" className="thumbnail">
-                            <img className="img-responsive" src={this.props.goods.picUrl} />
+                    <div className="col-md-3 col-xs-2">
+                        <a href={'goods/' + this.props.goods.id}>
+                            <img className="img-responsive center-block" src={this.props.goods.picUrl} />
                         </a>
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-9 col-xs-10">
                         <div className="content-area">
                             <a href={'goods/' + this.props.goods.id} className="goods-title">
                                 <span>{this.props.goods.title}</span>
                                 <span className="goods-discount">{this.props.goods.discountInfo}</span>
                             </a>
-                            <div>{this.props.goods.descSummary}</div>
+                            <div className="hidden-sm hidden-xs">{this.props.goods.descSummary}</div>
                         </div>
-                        <div className="row foot-area clearfix">
+                        <div className="row foot-area visible-md visible-lg clearfix">
                             <span className="interaction-area"></span>
                             <span className="btns-area">
-                                <button className="btn btn-info btn-sm">详情</button>
                                 <button className="btn btn-buy btn-sm" onClick={this.directToTargetSite(this.props.goods.buyUrl)}>到购物网站</button>
                             </span>
                         </div>
