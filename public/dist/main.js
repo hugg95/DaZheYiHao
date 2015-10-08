@@ -32834,7 +32834,7 @@
 	            navItemDom = (
 	                React.createElement("li", {key: navItem.id}, 
 	                    React.createElement("a", {href: "javascript:;"}, navItem.name), 
-	                    React.createElement("div", {className: "dropdown-list"}, 
+	                    React.createElement("div", {className: "dropdown-list hidden"}, 
 	                        React.createElement("ul", {className: "list-unstyled"}, 
 	                            
 	                                navItem.dropdown.map(function(dropdownItem) {
@@ -32930,12 +32930,18 @@
 	                    ), 
 	                    React.createElement("div", {className: "col-md-9"}, 
 	                        React.createElement("div", {className: "content-area"}, 
-	                            React.createElement("a", {className: "goods-title"}, this.props.goods.title), 
+	                            React.createElement("a", {href: 'goods/' + this.props.goods.id, className: "goods-title"}, 
+	                                React.createElement("span", null, this.props.goods.title), 
+	                                React.createElement("span", {className: "goods-discount"}, this.props.goods.discountInfo)
+	                            ), 
 	                            React.createElement("div", null, this.props.goods.descSummary)
 	                        ), 
-	                        React.createElement("div", {className: "row btns-area"}, 
-	                            React.createElement("button", {className: "btn btn-info btn-sm pull-right"}, "详情"), 
-	                            React.createElement("button", {className: "btn btn-buy btn-sm pull-right", onClick: this.directToTargetSite(this.props.goods.buyUrl)}, "到购物网站")
+	                        React.createElement("div", {className: "row foot-area clearfix"}, 
+	                            React.createElement("span", {className: "interaction-area"}), 
+	                            React.createElement("span", {className: "btns-area"}, 
+	                                React.createElement("button", {className: "btn btn-info btn-sm"}, "详情"), 
+	                                React.createElement("button", {className: "btn btn-buy btn-sm", onClick: this.directToTargetSite(this.props.goods.buyUrl)}, "到购物网站")
+	                            )
 	                        )
 	                    )
 	                )

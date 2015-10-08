@@ -75,7 +75,7 @@ body {
   /*max-height: 180px;*/
   margin-bottom: 15px;
   padding-top: 10px;
-  border-bottom: 1px solid #cc3366;
+  border-bottom: 1px solid #f0f0f0;
   background-color: #ffffff;
 }
 .goods-item .thumbnail {
@@ -84,21 +84,40 @@ body {
 .goods-item .content-area {
   padding-top: 15px;
 }
+.goods-item .foot-area {
+  height: 50px;
+  padding: 10px;
+}
 .goods-item .goods-title {
   display: inline-block;
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: bold;
 }
+.goods-item .goods-discount {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 15px;
+  color: #cc3333;
+}
 .goods-item img {
   max-width: 150px;
   max-height: 150px;
 }
+.goods-item .interaction-area,
 .goods-item .btns-area {
-  height: 50px;
-  padding: 10px;
+  display: inline-block;
+  float: left;
+  height: 100%;
 }
-.goods-item .btns-area .btn {
+.goods-item .interaction-area {
+  width: 70%;
+}
+.goods-item .btns-area {
+  width: 30%;
+}
+.goods-item .btns-area button {
   margin-right: 5px;
 }
 .footer {

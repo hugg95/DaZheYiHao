@@ -27,12 +27,18 @@ const Goods = React.createClass({
                     </div>
                     <div className="col-md-9">
                         <div className="content-area">
-                            <a className="goods-title">{this.props.goods.title}</a>
+                            <a href={'goods/' + this.props.goods.id} className="goods-title">
+                                <span>{this.props.goods.title}</span>
+                                <span className="goods-discount">{this.props.goods.discountInfo}</span>
+                            </a>
                             <div>{this.props.goods.descSummary}</div>
                         </div>
-                        <div className="row btns-area">
-                            <button className="btn btn-info btn-sm pull-right">详情</button>
-                            <button className="btn btn-buy btn-sm pull-right" onClick={this.directToTargetSite(this.props.goods.buyUrl)}>到购物网站</button>
+                        <div className="row foot-area clearfix">
+                            <span className="interaction-area"></span>
+                            <span className="btns-area">
+                                <button className="btn btn-info btn-sm">详情</button>
+                                <button className="btn btn-buy btn-sm" onClick={this.directToTargetSite(this.props.goods.buyUrl)}>到购物网站</button>
+                            </span>
                         </div>
                     </div>
                 </div>

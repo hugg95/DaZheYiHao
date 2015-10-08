@@ -44,7 +44,7 @@ let NavItem = React.createClass({
             navItemDom = (
                 <li key={navItem.id}>
                     <a href="javascript:;">{navItem.name}</a>
-                    <div className="dropdown-list">
+                    <div className="dropdown-list hidden">
                         <ul className="list-unstyled">
                             {
                                 navItem.dropdown.map(function(dropdownItem) {

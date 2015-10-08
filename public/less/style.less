@@ -84,7 +84,7 @@ body {
     /*max-height: 180px;*/
     margin-bottom: 15px;
     padding-top: 10px;
-    border-bottom: 1px solid @red;
+    border-bottom: 1px solid #f0f0f0;
     background-color: @white;
     .thumbnail {
         border: none;
@@ -92,20 +92,39 @@ body {
     .content-area {
         padding-top: 15px;
     }
+    .foot-area {
+        height: 50px;
+        padding: 10px;
+    }
     .goods-title {
         display: inline-block;
         margin-bottom: 10px;
         font-size: 16px;
         font-weight: bold;
     }
+    .goods-discount {
+        display: inline-block;
+        margin-left: 10px;
+        padding: 5px 10px;
+        font-size: 15px;
+        color: #cc3333;
+    }
     img {
         max-width: 150px;
         max-height: 150px;
     }
+    .interaction-area,
     .btns-area {
-        height: 50px;
-        padding: 10px;
-        .btn {
+        display: inline-block;
+        float: left;
+        height: 100%;
+    }
+    .interaction-area {
+        width: 70%;
+    }
+    .btns-area {
+        width: 30%;
+        button {
             margin-right: 5px;
         }
     }
