@@ -1,5 +1,5 @@
 'use strict'
-require('node-jsx').install({extension: '.jsx'});
+require('node-jsx').install({extension: '.js'});
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -10,6 +10,7 @@ const exphbs  = require('express-handlebars');
 
 const routes = require('./routes/index');
 const users = require('./routes/users');
+const posts = require('./routes/posts');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/posts', posts);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

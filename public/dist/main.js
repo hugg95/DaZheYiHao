@@ -32939,7 +32939,7 @@
 	                        React.createElement("div", {className: "row foot-area visible-md visible-lg clearfix"}, 
 	                            React.createElement("span", {className: "interaction-area"}), 
 	                            React.createElement("span", {className: "btns-area"}, 
-	                                React.createElement("button", {className: "btn btn-buy btn-sm", onClick: this.directToTargetSite(this.props.goods.buyUrl)}, "到购物网站")
+	                                React.createElement("a", {className: "btn btn-buy btn-sm", href: this.props.goods.buyUrl, target: "_blank", role: "button"}, "到购物网站")
 	                            )
 	                        )
 	                    )

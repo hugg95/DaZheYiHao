@@ -36,7 +36,7 @@ const Goods = React.createClass({
                         <div className="row foot-area visible-md visible-lg clearfix">
                             <span className="interaction-area"></span>
                             <span className="btns-area">
-                                <button className="btn btn-buy btn-sm" onClick={this.directToTargetSite(this.props.goods.buyUrl)}>到购物网站</button>
+                                <a className="btn btn-buy btn-sm" href={this.props.goods.buyUrl} target="_blank" role="button">到购物网站</a>
                             </span>
                         </div>
                     </div>
