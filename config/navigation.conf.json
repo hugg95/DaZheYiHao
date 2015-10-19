@@ -1,7 +1,7 @@
 [
-    {"name": "首页", "_name": "index", "id": 1},
-    {"name": "发现", "_name": "find", "id": 2},
-    {"name": "神店铺", "_name": "wow", "id": 3},
-    {"name": "双十一特惠", "_name": "11_11", "id": 3},
-    {"name": "分类浏览", "_name": "category", "id": 4, "dropdown": []}
+    {"name": "首页", "en_name": "home", "id": 1},
+    {"name": "发现", "en_name": "find", "id": 2},
+    {"name": "神店铺", "en_name": "wow", "id": 3},
+    {"name": "双十一特惠", "en_name": "11_11", "id": 4},
+    {"name": "分类浏览", "en_name": "category", "id": 5, "dropdown": []}
 ]

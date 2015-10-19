@@ -36,7 +36,7 @@ let NavItem = React.createClass({
 
         let navItemDom = (
             <li key={navItem.id}>
-                <a href={navItem.href}>{navItem.name}</a>
+                <a href={'/' + navItem.en_name}>{navItem.name}</a>
             </li>
         );
 

@@ -15,21 +15,21 @@ var Route = Router.Route;
 var NavBar = require('../../components/NavBar.react.jsx');
 var GoodsList = require('../../components/GoodsList.react.jsx');
 
-var App = React.createClass({
-    render: function() {
-        return (
-            <div></div>
-        );
-    }
-});
+// var App = React.createClass({
+//     render: function() {
+//         return (
+//             <div></div>
+//         );
+//     }
+// });
 
-var routes = (
-    <Route handler={App}></Route>
-);
+// var routes = (
+//     <Route handler={App}></Route>
+// );
 
-var navs = JSON.parse($('#js-navs').text());
+//var navs = JSON.parse($('#js-navs').text());
 
 
-Router.run(routes, Router.HashLocation, function(Root) {
-    React.render(<NavBar navs={navs} />, document.getElementById('js-navbar'));
-});
+//Router.run(routes, Router.HashLocation, function(Root) {
+    //React.render(<NavBar navs={navs} />, document.getElementById('js-navbar'));
+//});

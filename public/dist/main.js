@@ -61,24 +61,24 @@
 	var NavBar = __webpack_require__(197);
 	var GoodsList = __webpack_require__(198);
 
-	var App = React.createClass({displayName: "App",
-	    render: function() {
-	        return (
-	            React.createElement("div", null)
-	        );
-	    }
-	});
+	// var App = React.createClass({
+	//     render: function() {
+	//         return (
+	//             <div></div>
+	//         );
+	//     }
+	// });
 
-	var routes = (
-	    React.createElement(Route, {handler: App})
-	);
+	// var routes = (
+	//     <Route handler={App}></Route>
+	// );
 
-	var navs = JSON.parse($('#js-navs').text());
+	//var navs = JSON.parse($('#js-navs').text());
 
 
-	Router.run(routes, Router.HashLocation, function(Root) {
-	    React.render(React.createElement(NavBar, {navs: navs}), document.getElementById('js-navbar'));
-	});
+	//Router.run(routes, Router.HashLocation, function(Root) {
+	    //React.render(<NavBar navs={navs} />, document.getElementById('js-navbar'));
+	//});
 
 
 /***/ },
@@ -32826,7 +32826,7 @@
 
 	        let navItemDom = (
 	            React.createElement("li", {key: navItem.id}, 
-	                React.createElement("a", {href: navItem.href}, navItem.name)
+	                React.createElement("a", {href: '/' + navItem.en_name}, navItem.name)
 	            )
 	        );
 
