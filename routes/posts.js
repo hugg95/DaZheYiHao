@@ -28,6 +28,13 @@ router.get('/', function(req, res, next) {
         pathname: apiConfig.get_goods_list
     });
 
+    const countGoodsTotal = url.format({
+        hostname: apiConfig.host,
+        port: apiConfig.port,
+        protocol: 'http',
+        pathname: apiConfig.count_goods_totle
+    });
+
     getGoodsList = getGoodsList.replace(/\{\w+\}/, 1);
 
     let requests = {};

@@ -20,7 +20,7 @@ const Goods = React.createClass({
         return (
             <div key={this.props.goods.id} className="col-md-12 goods-item">
                 <div className="row">
-                    <div className="col-md-3 col-xs-2">
+                    <div className="col-md-3 col-xs-2 goods-img">
                         <a href={'goods/' + this.props.goods.id}>
                             <img className="img-responsive center-block" src={this.props.goods.picUrl} />
                         </a>
@@ -36,7 +36,7 @@ const Goods = React.createClass({
                         <div className="row foot-area visible-md visible-lg clearfix">
                             <span className="interaction-area"></span>
                             <span className="btns-area">
-                                <a className="btn btn-buy btn-sm" href={this.props.goods.buyUrl} target="_blank" role="button">到购物网站</a>
+                                <a className="btn btn-buy btn-sm" href={this.props.goods.buyUrl} target="_blank" role="button">买买买</a>
                             </span>
                         </div>
                     </div>
