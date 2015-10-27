@@ -29715,9 +29715,11 @@
 
 	'use strict';
 
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var PropTypes = __webpack_require__(160);
 	var RouteHandler = __webpack_require__(169);
@@ -29731,22 +29733,20 @@
 	 */
 
 	var DefaultRoute = (function (_Route) {
+	  _inherits(DefaultRoute, _Route);
+
 	  function DefaultRoute() {
 	    _classCallCheck(this, DefaultRoute);
 
-	    if (_Route != null) {
-	      _Route.apply(this, arguments);
-	    }
+	    _get(Object.getPrototypeOf(DefaultRoute.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
-	  _inherits(DefaultRoute, _Route);
+	  // TODO: Include these in the above class definition
+	  // once we can use ES7 property initializers.
+	  // https://github.com/babel/babel/issues/619
 
 	  return DefaultRoute;
 	})(Route);
-
-	// TODO: Include these in the above class definition
-	// once we can use ES7 property initializers.
-	// https://github.com/babel/babel/issues/619
 
 	DefaultRoute.propTypes = {
 	  name: PropTypes.string,
@@ -29777,9 +29777,7 @@
 	   * Indicates that a prop should be falsy.
 	   */
 	  falsy: function falsy(props, propName, componentName) {
-	    if (props[propName]) {
-	      return new Error('<' + componentName + '> should not have a "' + propName + '" prop');
-	    }
+	    if (props[propName]) return new Error('<' + componentName + '> should not have a "' + propName + '" prop');
 	  },
 
 	  /**
@@ -29803,9 +29801,9 @@
 
 	'use strict';
 
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 	var assign = __webpack_require__(14);
 	var invariant = __webpack_require__(8);
@@ -29815,45 +29813,7 @@
 	var _currentRoute;
 
 	var Route = (function () {
-	  function Route(name, path, ignoreScrollBehavior, isDefault, isNotFound, onEnter, onLeave, handler) {
-	    _classCallCheck(this, Route);
-
-	    this.name = name;
-	    this.path = path;
-	    this.paramNames = PathUtils.extractParamNames(this.path);
-	    this.ignoreScrollBehavior = !!ignoreScrollBehavior;
-	    this.isDefault = !!isDefault;
-	    this.isNotFound = !!isNotFound;
-	    this.onEnter = onEnter;
-	    this.onLeave = onLeave;
-	    this.handler = handler;
-	  }
-
-	  _createClass(Route, [{
-	    key: 'appendChild',
-
-	    /**
-	     * Appends the given route to this route's child routes.
-	     */
-	    value: function appendChild(route) {
-	      invariant(route instanceof Route, 'route.appendChild must use a valid Route');
-
-	      if (!this.childRoutes) this.childRoutes = [];
-
-	      this.childRoutes.push(route);
-	    }
-	  }, {
-	    key: 'toString',
-	    value: function toString() {
-	      var string = '<Route';
-
-	      if (this.name) string += ' name="' + this.name + '"';
-
-	      string += ' path="' + this.path + '">';
-
-	      return string;
-	    }
-	  }], [{
+	  _createClass(Route, null, [{
 	    key: 'createRoute',
 
 	    /**
@@ -29952,28 +29912,26 @@
 
 	      return route;
 	    }
-	  }, {
-	    key: 'createDefaultRoute',
 
 	    /**
 	     * Creates and returns a route that is rendered when its parent matches
 	     * the current URL.
 	     */
+	  }, {
+	    key: 'createDefaultRoute',
 	    value: function createDefaultRoute(options) {
 	      return Route.createRoute(assign({}, options, { isDefault: true }));
 	    }
-	  }, {
-	    key: 'createNotFoundRoute',
 
 	    /**
 	     * Creates and returns a route that is rendered when its parent matches
 	     * the current URL but none of its siblings do.
 	     */
+	  }, {
+	    key: 'createNotFoundRoute',
 	    value: function createNotFoundRoute(options) {
 	      return Route.createRoute(assign({}, options, { isNotFound: true }));
 	    }
-	  }, {
-	    key: 'createRedirect',
 
 	    /**
 	     * Creates and returns a route that automatically redirects the transition
@@ -29987,6 +29945,8 @@
 	     * - query        The query to use in the redirect URL. Defaults
 	     *                to using the current query
 	     */
+	  }, {
+	    key: 'createRedirect',
 	    value: function createRedirect(options) {
 	      return Route.createRoute(assign({}, options, {
 	        path: options.path || options.from || '*',
@@ -29994,6 +29954,46 @@
 	          transition.redirect(options.to, options.params || params, options.query || query);
 	        }
 	      }));
+	    }
+	  }]);
+
+	  function Route(name, path, ignoreScrollBehavior, isDefault, isNotFound, onEnter, onLeave, handler) {
+	    _classCallCheck(this, Route);
+
+	    this.name = name;
+	    this.path = path;
+	    this.paramNames = PathUtils.extractParamNames(this.path);
+	    this.ignoreScrollBehavior = !!ignoreScrollBehavior;
+	    this.isDefault = !!isDefault;
+	    this.isNotFound = !!isNotFound;
+	    this.onEnter = onEnter;
+	    this.onLeave = onLeave;
+	    this.handler = handler;
+	  }
+
+	  /**
+	   * Appends the given route to this route's child routes.
+	   */
+
+	  _createClass(Route, [{
+	    key: 'appendChild',
+	    value: function appendChild(route) {
+	      invariant(route instanceof Route, 'route.appendChild must use a valid Route');
+
+	      if (!this.childRoutes) this.childRoutes = [];
+
+	      this.childRoutes.push(route);
+	    }
+	  }, {
+	    key: 'toString',
+	    value: function toString() {
+	      var string = '<Route';
+
+	      if (this.name) string += ' name="' + this.name + '"';
+
+	      string += ' path="' + this.path + '">';
+
+	      return string;
 	    }
 	  }]);
 
@@ -30014,7 +30014,7 @@
 
 	var paramCompileMatcher = /:([a-zA-Z_$][a-zA-Z0-9_$]*)|[*.()\[\]\\+|{}^$]/g;
 	var paramInjectMatcher = /:([a-zA-Z_$][a-zA-Z0-9_$?]*[?]?)|[*]/g;
-	var paramInjectTrailingSlashMatcher = /\/\/\?|\/\?\/|\/\?/g;
+	var paramInjectTrailingSlashMatcher = /\/\/\?|\/\?\/|\/\?(?![^\/=]+=.*$)/g;
 	var queryMatcher = /\?(.*)$/;
 
 	var _compiledPatterns = {};
@@ -30079,9 +30079,9 @@
 
 	    var match = path.match(matcher);
 
-	    if (!match) {
-	      return null;
-	    }var params = {};
+	    if (!match) return null;
+
+	    var params = {};
 
 	    paramNames.forEach(function (paramName, index) {
 	      params[paramName] = match[index + 1];
@@ -30151,9 +30151,9 @@
 
 	    var queryString = qs.stringify(query, { arrayFormat: 'brackets' });
 
-	    if (queryString) {
-	      return PathUtils.withoutQuery(path) + '?' + queryString;
-	    }return PathUtils.withoutQuery(path);
+	    if (queryString) return PathUtils.withoutQuery(path) + '?' + queryString;
+
+	    return PathUtils.withoutQuery(path);
 	  }
 
 	};
@@ -30634,11 +30634,13 @@
 
 	'use strict';
 
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
 	var ContextWrapper = __webpack_require__(170);
@@ -30653,15 +30655,17 @@
 	 */
 
 	var RouteHandler = (function (_React$Component) {
+	  _inherits(RouteHandler, _React$Component);
+
 	  function RouteHandler() {
 	    _classCallCheck(this, RouteHandler);
 
-	    if (_React$Component != null) {
-	      _React$Component.apply(this, arguments);
-	    }
+	    _get(Object.getPrototypeOf(RouteHandler.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
-	  _inherits(RouteHandler, _React$Component);
+	  // TODO: Include these in the above class definition
+	  // once we can use ES7 property initializers.
+	  // https://github.com/babel/babel/issues/619
 
 	  _createClass(RouteHandler, [{
 	    key: 'getChildContext',
@@ -30700,9 +30704,9 @@
 	    value: function createChildRouteHandler(props) {
 	      var route = this.context.router.getRouteAtDepth(this.getRouteDepth());
 
-	      if (route == null) {
-	        return null;
-	      }var childProps = assign({}, props || this.props, {
+	      if (route == null) return null;
+
+	      var childProps = assign({}, props || this.props, {
 	        ref: REF_NAME,
 	        params: this.context.router.getCurrentParams(),
 	        query: this.context.router.getCurrentQuery()
@@ -30726,10 +30730,6 @@
 	  return RouteHandler;
 	})(React.Component);
 
-	// TODO: Include these in the above class definition
-	// once we can use ES7 property initializers.
-	// https://github.com/babel/babel/issues/619
-
 	RouteHandler.contextTypes = {
 	  routeDepth: PropTypes.number.isRequired,
 	  router: PropTypes.router.isRequired
@@ -30745,32 +30745,32 @@
 /* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-
 	/**
 	 * This component is necessary to get around a context warning
 	 * present in React 0.13.0. It sovles this by providing a separation
 	 * between the "owner" and "parent" contexts.
 	 */
 
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var React = __webpack_require__(2);
 
 	var ContextWrapper = (function (_React$Component) {
+	  _inherits(ContextWrapper, _React$Component);
+
 	  function ContextWrapper() {
 	    _classCallCheck(this, ContextWrapper);
 
-	    if (_React$Component != null) {
-	      _React$Component.apply(this, arguments);
-	    }
+	    _get(Object.getPrototypeOf(ContextWrapper.prototype), 'constructor', this).apply(this, arguments);
 	  }
-
-	  _inherits(ContextWrapper, _React$Component);
 
 	  _createClass(ContextWrapper, [{
 	    key: 'render',
@@ -30790,11 +30790,13 @@
 
 	'use strict';
 
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
 	var invariant = __webpack_require__(8);
@@ -30832,7 +30834,7 @@
 	 *   var App = React.createClass({
 	 *     render: function () {
 	 *       return (
-	 *         <div class="application">
+	 *         <div className="application">
 	 *           <RouteHandler/>
 	 *         </div>
 	 *       );
@@ -30843,15 +30845,17 @@
 	 */
 
 	var Route = (function (_React$Component) {
+	  _inherits(Route, _React$Component);
+
 	  function Route() {
 	    _classCallCheck(this, Route);
 
-	    if (_React$Component != null) {
-	      _React$Component.apply(this, arguments);
-	    }
+	    _get(Object.getPrototypeOf(Route.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
-	  _inherits(Route, _React$Component);
+	  // TODO: Include these in the above class definition
+	  // once we can use ES7 property initializers.
+	  // https://github.com/babel/babel/issues/619
 
 	  _createClass(Route, [{
 	    key: 'render',
@@ -30862,10 +30866,6 @@
 
 	  return Route;
 	})(React.Component);
-
-	// TODO: Include these in the above class definition
-	// once we can use ES7 property initializers.
-	// https://github.com/babel/babel/issues/619
 
 	Route.propTypes = {
 	  name: PropTypes.string,
@@ -30886,11 +30886,13 @@
 
 	'use strict';
 
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var React = __webpack_require__(2);
 	var assign = __webpack_require__(14);
@@ -30924,15 +30926,17 @@
 	 */
 
 	var Link = (function (_React$Component) {
+	  _inherits(Link, _React$Component);
+
 	  function Link() {
 	    _classCallCheck(this, Link);
 
-	    if (_React$Component != null) {
-	      _React$Component.apply(this, arguments);
-	    }
+	    _get(Object.getPrototypeOf(Link.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
-	  _inherits(Link, _React$Component);
+	  // TODO: Include these in the above class definition
+	  // once we can use ES7 property initializers.
+	  // https://github.com/babel/babel/issues/619
 
 	  _createClass(Link, [{
 	    key: 'handleClick',
@@ -30942,30 +30946,30 @@
 
 	      if (this.props.onClick) clickResult = this.props.onClick(event);
 
-	      if (isModifiedEvent(event) || !isLeftClickEvent(event)) {
-	        return;
-	      }if (clickResult === false || event.defaultPrevented === true) allowTransition = false;
+	      if (isModifiedEvent(event) || !isLeftClickEvent(event)) return;
+
+	      if (clickResult === false || event.defaultPrevented === true) allowTransition = false;
 
 	      event.preventDefault();
 
 	      if (allowTransition) this.context.router.transitionTo(this.props.to, this.props.params, this.props.query);
 	    }
-	  }, {
-	    key: 'getHref',
 
 	    /**
 	     * Returns the value of the "href" attribute to use on the DOM element.
 	     */
+	  }, {
+	    key: 'getHref',
 	    value: function getHref() {
 	      return this.context.router.makeHref(this.props.to, this.props.params, this.props.query);
 	    }
-	  }, {
-	    key: 'getClassName',
 
 	    /**
 	     * Returns the value of the "class" attribute to use on the DOM element, which contains
 	     * the value of the activeClassName property when this <Link> is active.
 	     */
+	  }, {
+	    key: 'getClassName',
 	    value: function getClassName() {
 	      var className = this.props.className;
 
@@ -30996,10 +31000,6 @@
 	  return Link;
 	})(React.Component);
 
-	// TODO: Include these in the above class definition
-	// once we can use ES7 property initializers.
-	// https://github.com/babel/babel/issues/619
-
 	Link.contextTypes = {
 	  router: PropTypes.router.isRequired
 	};
@@ -31026,9 +31026,11 @@
 
 	'use strict';
 
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var PropTypes = __webpack_require__(160);
 	var RouteHandler = __webpack_require__(169);
@@ -31043,22 +31045,20 @@
 	 */
 
 	var NotFoundRoute = (function (_Route) {
+	  _inherits(NotFoundRoute, _Route);
+
 	  function NotFoundRoute() {
 	    _classCallCheck(this, NotFoundRoute);
 
-	    if (_Route != null) {
-	      _Route.apply(this, arguments);
-	    }
+	    _get(Object.getPrototypeOf(NotFoundRoute.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
-	  _inherits(NotFoundRoute, _Route);
+	  // TODO: Include these in the above class definition
+	  // once we can use ES7 property initializers.
+	  // https://github.com/babel/babel/issues/619
 
 	  return NotFoundRoute;
 	})(Route);
-
-	// TODO: Include these in the above class definition
-	// once we can use ES7 property initializers.
-	// https://github.com/babel/babel/issues/619
 
 	NotFoundRoute.propTypes = {
 	  name: PropTypes.string,
@@ -31079,9 +31079,11 @@
 
 	'use strict';
 
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var PropTypes = __webpack_require__(160);
 	var Route = __webpack_require__(171);
@@ -31092,22 +31094,20 @@
 	 */
 
 	var Redirect = (function (_Route) {
+	  _inherits(Redirect, _Route);
+
 	  function Redirect() {
 	    _classCallCheck(this, Redirect);
 
-	    if (_Route != null) {
-	      _Route.apply(this, arguments);
-	    }
+	    _get(Object.getPrototypeOf(Redirect.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
-	  _inherits(Redirect, _Route);
+	  // TODO: Include these in the above class definition
+	  // once we can use ES7 property initializers.
+	  // https://github.com/babel/babel/issues/619
 
 	  return Redirect;
 	})(Route);
-
-	// TODO: Include these in the above class definition
-	// once we can use ES7 property initializers.
-	// https://github.com/babel/babel/issues/619
 
 	Redirect.propTypes = {
 	  path: PropTypes.string,
@@ -31150,9 +31150,9 @@
 	function ensureSlash() {
 	  var path = HashLocation.getCurrentPath();
 
-	  if (path.charAt(0) === '/') {
-	    return true;
-	  }HashLocation.replace('/' + path);
+	  if (path.charAt(0) === '/') return true;
+
+	  HashLocation.replace('/' + path);
 
 	  return false;
 	}
@@ -31326,9 +31326,7 @@
 	}
 
 	function onPopState(event) {
-	  if (event.state === undefined) {
-	    return;
-	  } // Ignore extraneous popstate events in WebKit.
+	  if (event.state === undefined) return; // Ignore extraneous popstate events in WebKit.
 
 	  notifyChange(LocationActions.POP);
 	}
@@ -31435,9 +31433,9 @@
 
 	'use strict';
 
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 	var invariant = __webpack_require__(8);
 
@@ -31458,6 +31456,10 @@
 	    this.path = path;
 	  }
 
+	  // TODO: Include these in the above class definition
+	  // once we can use ES7 property initializers.
+	  // https://github.com/babel/babel/issues/619
+
 	  _createClass(StaticLocation, [{
 	    key: 'getCurrentPath',
 	    value: function getCurrentPath() {
@@ -31473,10 +31475,6 @@
 	  return StaticLocation;
 	})();
 
-	// TODO: Include these in the above class definition
-	// once we can use ES7 property initializers.
-	// https://github.com/babel/babel/issues/619
-
 	StaticLocation.prototype.push = throwCannotModify;
 	StaticLocation.prototype.replace = throwCannotModify;
 	StaticLocation.prototype.pop = throwCannotModify;
@@ -31489,9 +31487,9 @@
 
 	'use strict';
 
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 	var invariant = __webpack_require__(8);
 	var LocationActions = __webpack_require__(176);
@@ -31507,15 +31505,11 @@
 
 	    this.history = history || [];
 	    this.listeners = [];
+	    this.needsDOM = false;
 	    this._updateHistoryLength();
 	  }
 
 	  _createClass(TestLocation, [{
-	    key: 'needsDOM',
-	    get: function () {
-	      return false;
-	    }
-	  }, {
 	    key: '_updateHistoryLength',
 	    value: function _updateHistoryLength() {
 	      History.length = this.history.length;
@@ -31830,20 +31824,20 @@
 	}
 
 	function createRouteFromReactElement(element) {
-	  if (!React.isValidElement(element)) {
-	    return;
-	  }var type = element.type;
+	  if (!React.isValidElement(element)) return;
+
+	  var type = element.type;
 	  var props = assign({}, type.defaultProps, element.props);
 
 	  if (type.propTypes) checkPropTypes(type.displayName, type.propTypes, props);
 
-	  if (type === DefaultRoute) {
-	    return Route.createDefaultRoute(createRouteOptions(props));
-	  }if (type === NotFoundRoute) {
-	    return Route.createNotFoundRoute(createRouteOptions(props));
-	  }if (type === Redirect) {
-	    return Route.createRedirect(createRouteOptions(props));
-	  }return Route.createRoute(createRouteOptions(props), function () {
+	  if (type === DefaultRoute) return Route.createDefaultRoute(createRouteOptions(props));
+
+	  if (type === NotFoundRoute) return Route.createNotFoundRoute(createRouteOptions(props));
+
+	  if (type === Redirect) return Route.createRedirect(createRouteOptions(props));
+
+	  return Route.createRoute(createRouteOptions(props), function () {
 	    if (props.children) createRoutesFromReactChildren(props.children);
 	  });
 	}
@@ -31917,9 +31911,9 @@
 	var DEFAULT_SCROLL_BEHAVIOR = canUseDOM ? ImitateBrowserBehavior : null;
 
 	function hasProperties(object, properties) {
-	  for (var propertyName in properties) if (properties.hasOwnProperty(propertyName) && object[propertyName] !== properties[propertyName]) {
-	    return false;
-	  }return true;
+	  for (var propertyName in properties) if (properties.hasOwnProperty(propertyName) && object[propertyName] !== properties[propertyName]) return false;
+
+	  return true;
 	}
 
 	function hasMatch(routes, route, prevParams, nextParams, prevQuery, nextQuery) {
@@ -31963,15 +31957,15 @@
 	}
 
 	function paramsAreActive(activeParams, params) {
-	  for (var property in params) if (String(activeParams[property]) !== String(params[property])) {
-	    return false;
-	  }return true;
+	  for (var property in params) if (String(activeParams[property]) !== String(params[property])) return false;
+
+	  return true;
 	}
 
 	function queryIsActive(activeQuery, query) {
-	  for (var property in query) if (String(activeQuery[property]) !== String(query[property])) {
-	    return false;
-	  }return true;
+	  for (var property in query) if (String(activeQuery[property]) !== String(query[property])) return false;
+
+	  return true;
 	}
 
 	/**
@@ -32183,9 +32177,7 @@
 	        var prevPath = state.path;
 	        var isRefreshing = action == null;
 
-	        if (prevPath === path && !isRefreshing) {
-	          return;
-	        } // Nothing to do!
+	        if (prevPath === path && !isRefreshing) return; // Nothing to do!
 
 	        // Record the scroll position as early as possible to
 	        // get it before browsers try update it automatically.
@@ -32342,9 +32334,9 @@
 	       * Returns true if the given route, params, and query are active.
 	       */
 	      isActive: function isActive(to, params, query) {
-	        if (PathUtils.isAbsolute(to)) {
-	          return to === state.path;
-	        }return routeIsActive(state.routes, to) && paramsAreActive(state.params, params) && (query == null || queryIsActive(state.query, query));
+	        if (PathUtils.isAbsolute(to)) return to === state.path;
+
+	        return routeIsActive(state.routes, to) && paramsAreActive(state.params, params) && (query == null || queryIsActive(state.query, query));
 	      }
 
 	    },
@@ -32407,12 +32399,12 @@
 	var getWindowScrollPosition = __webpack_require__(189);
 
 	function shouldUpdateScroll(state, prevState) {
-	  if (!prevState) {
-	    return true;
-	  } // Don't update scroll position when only the query has changed.
-	  if (state.pathname === prevState.pathname) {
-	    return false;
-	  }var routes = state.routes;
+	  if (!prevState) return true;
+
+	  // Don't update scroll position when only the query has changed.
+	  if (state.pathname === prevState.pathname) return false;
+
+	  var routes = state.routes;
 	  var prevRoutes = prevState.routes;
 
 	  var sharedAncestorRoutes = routes.filter(function (route) {
@@ -32465,9 +32457,9 @@
 	  },
 
 	  _updateScroll: function _updateScroll(prevState) {
-	    if (!shouldUpdateScroll(this.state, prevState)) {
-	      return;
-	    }var scrollBehavior = this.constructor.getScrollBehavior();
+	    if (!shouldUpdateScroll(this.state, prevState)) return;
+
+	    var scrollBehavior = this.constructor.getScrollBehavior();
 
 	    if (scrollBehavior) scrollBehavior.updateScrollPosition(this.constructor.getScrollPosition(this.state.path), this.state.action);
 	  }
@@ -32632,13 +32624,13 @@
 /* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* jshint -W084 */
 	'use strict';
-
-	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	/* jshint -W084 */
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
 	var PathUtils = __webpack_require__(162);
 
 	function deepSearch(route, pathname, query) {
@@ -32661,29 +32653,20 @@
 
 	  // No child routes matched; try the default route.
 	  var defaultRoute = route.defaultRoute;
-	  if (defaultRoute && (params = PathUtils.extractParams(defaultRoute.path, pathname))) {
-	    return new Match(pathname, params, query, [route, defaultRoute]);
-	  } // Does the "not found" route match?
+	  if (defaultRoute && (params = PathUtils.extractParams(defaultRoute.path, pathname))) return new Match(pathname, params, query, [route, defaultRoute]);
+
+	  // Does the "not found" route match?
 	  var notFoundRoute = route.notFoundRoute;
-	  if (notFoundRoute && (params = PathUtils.extractParams(notFoundRoute.path, pathname))) {
-	    return new Match(pathname, params, query, [route, notFoundRoute]);
-	  } // Last attempt: check this route.
+	  if (notFoundRoute && (params = PathUtils.extractParams(notFoundRoute.path, pathname))) return new Match(pathname, params, query, [route, notFoundRoute]);
+
+	  // Last attempt: check this route.
 	  var params = PathUtils.extractParams(route.path, pathname);
-	  if (params) {
-	    return new Match(pathname, params, query, [route]);
-	  }return null;
+	  if (params) return new Match(pathname, params, query, [route]);
+
+	  return null;
 	}
 
 	var Match = (function () {
-	  function Match(pathname, params, query, routes) {
-	    _classCallCheck(this, Match);
-
-	    this.pathname = pathname;
-	    this.params = params;
-	    this.query = query;
-	    this.routes = routes;
-	  }
-
 	  _createClass(Match, null, [{
 	    key: 'findMatch',
 
@@ -32702,6 +32685,15 @@
 	      return match;
 	    }
 	  }]);
+
+	  function Match(pathname, params, query, routes) {
+	    _classCallCheck(this, Match);
+
+	    this.pathname = pathname;
+	    this.params = params;
+	    this.query = query;
+	    this.routes = routes;
+	  }
 
 	  return Match;
 	})();
