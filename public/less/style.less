@@ -9,6 +9,9 @@ body {
     font: 14px @font-mac, @font-win, @font-linux, @font-common;
     background-color: @gray;
 }
+a {
+    color: #555;
+}
 
 .btn-buy {
     color: @white;
@@ -27,14 +30,12 @@ body {
     top: 0;
     width: 100%;
     height: 50px;
-    /*background-color: @white;*/
     background-color: @red;
     box-shadow: 0 0 10px #000;
     .navbar-default {
         width: 70%;
         height: 50px;
         margin: 0 auto;
-        /*background-color: @white;*/
         background-color: @red;
         .navbar-nav,
         .navbar-header{
@@ -136,6 +137,14 @@ body {
         button {
             /*margin-right: 5px;*/
         }
+    }
+}
+
+.post-body {
+    padding: 15px 0;
+    .btns-area {
+        height: 50px;
+        padding: 10px;
     }
 }
 

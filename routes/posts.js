@@ -48,7 +48,30 @@ router.get('/', function(req, res, next) {
     }).catch(function(e) {
         console.log(e);
         res.render('index', {error: e});
+    });
 
+});
+
+router.get('/:id', function(req, res, next) {
+
+    let getGoodsDetail = url.format({
+        hostname: apiConfig.host,
+        port: apiConfig.port,
+        protocol: 'http',
+        pathname: apiConfig.get_goods_detail
+    });
+
+    getGoodsDetail = getGoodsDetail.replace(/\{\w+\}/, req.params.id);
+
+    let requests = {};
+    requests['get_goods_detail'] = request.getAsync(getGoodsDetail);
+    Promise.props(requests).then(function(_res) {
+        const getGoodsDetailRes = _res['get_goods_detail'];
+        const goodsDetail = JSON.parse(getGoodsDetailRes[0]['body'])['data'];
+        res.render('goods', {goods: goodsDetail});
+    }).catch(function(e) {
+        console.log(e);
+        res.render('index', {error: e});
     });
 
 });

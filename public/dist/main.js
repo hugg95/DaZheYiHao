@@ -32915,7 +32915,7 @@
 	        return (
 	            React.createElement("div", {key: this.props.goods.id, className: "col-md-12 goods-item"}, 
 	                React.createElement("div", {className: "row"}, 
-	                    React.createElement("div", {className: "col-md-3 col-xs-2"}, 
+	                    React.createElement("div", {className: "col-md-3 col-xs-2 goods-img"}, 
 	                        React.createElement("a", {href: 'goods/' + this.props.goods.id}, 
 	                            React.createElement("img", {className: "img-responsive center-block", src: this.props.goods.picUrl})
 	                        )
@@ -32924,14 +32924,14 @@
 	                        React.createElement("div", {className: "content-area"}, 
 	                            React.createElement("a", {href: 'goods/' + this.props.goods.id, className: "goods-title"}, 
 	                                React.createElement("span", null, this.props.goods.title), 
-	                                React.createElement("span", {className: "goods-discount"}, this.props.goods.titlePoint+'-==------')
+	                                React.createElement("span", {className: "goods-discount"}, this.props.goods.titlePoint)
 	                            ), 
-	                            React.createElement("div", {className: "hidden-sm hidden-xs"}, this.props.goods.descSummary)
+	                            React.createElement("div", {className: "hidden-sm hidden-xs"}, this.props.goods.articleSummary)
 	                        ), 
 	                        React.createElement("div", {className: "row foot-area visible-md visible-lg clearfix"}, 
 	                            React.createElement("span", {className: "interaction-area"}), 
 	                            React.createElement("span", {className: "btns-area"}, 
-	                                React.createElement("a", {className: "btn btn-buy btn-sm", href: this.props.goods.buyUrl, target: "_blank", role: "button"}, "到购物网站")
+	                                React.createElement("a", {className: "btn btn-buy btn-sm", href: this.props.goods.buyUrl, target: "_blank", role: "button"}, "买买买")
 	                            )
 	                        )
 	                    )
