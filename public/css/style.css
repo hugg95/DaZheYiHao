@@ -51,6 +51,7 @@ body {
 .main .main-side {
   color: #555;
   background-color: #ffffff;
+  word-break: break-all;
 }
 .dropdown-list {
   width: 100%;

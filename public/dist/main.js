@@ -32924,7 +32924,7 @@
 	                        React.createElement("div", {className: "content-area"}, 
 	                            React.createElement("a", {href: 'goods/' + this.props.goods.id, className: "goods-title"}, 
 	                                React.createElement("span", null, this.props.goods.title), 
-	                                React.createElement("span", {className: "goods-discount"}, this.props.goods.discountInfo)
+	                                React.createElement("span", {className: "goods-discount"}, this.props.goods.titlePoint+'-==------')
 	                            ), 
 	                            React.createElement("div", {className: "hidden-sm hidden-xs"}, this.props.goods.descSummary)
 	                        ), 

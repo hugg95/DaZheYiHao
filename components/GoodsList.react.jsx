@@ -29,9 +29,9 @@ const Goods = React.createClass({
                         <div className="content-area">
                             <a href={'goods/' + this.props.goods.id} className="goods-title">
                                 <span>{this.props.goods.title}</span>
-                                <span className="goods-discount">{this.props.goods.discountInfo}</span>
+                                <span className="goods-discount">{this.props.goods.titlePoint}</span>
                             </a>
-                            <div className="hidden-sm hidden-xs">{this.props.goods.descSummary}</div>
+                            <div className="hidden-sm hidden-xs">{this.props.goods.articleSummary}</div>
                         </div>
                         <div className="row foot-area visible-md visible-lg clearfix">
                             <span className="interaction-area"></span>
